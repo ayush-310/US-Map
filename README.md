@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# React Leaflet US State Score Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application that uses Leaflet for mapping US states and allows users to view and update state scores interactively. Hovering over a state shows its name and current score, while a top-right panel displays the scores for all states.
 
-## Available Scripts
+## Features
+- **Interactive Map:** Hover over any state to see its name and score.
+- **State Voting:** Click on a state to update its score with vote-up or vote-down buttons.
+- **Responsive Design:** A toggle button on smaller screens displays or hides the state score panel.
 
-In the project directory, you can run:
+## Prerequisites
+Ensure you have the following installed on your system:
+1. Node.js (>= 14.x)
+2. npm (Node Package Manager)
+3. Git
 
-### `npm start`
+## Steps to Run the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Clone the Repository
+```bash
+git clone <GitHub_Link>
+```
+Replace `<GitHub_Link>` with the actual link to the GitHub repository.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Navigate to the Project Directory
+```bash
+cd <project-directory>
+```
 
-### `npm test`
+### Install Dependencies
+Install all necessary packages:
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Start the Development Server
+Run the application locally:
+```bash
+npm start
+```
+This will start the application, and it will be accessible at `http://localhost:3000/` in your browser.
 
-### `npm run build`
+### Building for Production
+To create a production build:
+```bash
+npm run build
+```
+The optimized production build will be created in the `build/` directory.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
+```
+.
+├── public
+│   ├── index.html      # Main HTML file
+│   └── ...
+├── src
+│   ├── components      # Reusable React components
+│   ├── data            # GeoJSON data for US states
+│   ├── index.css       # Global styles
+│   ├── App.js          # Main App component
+│   ├── index.js        # Entry point
+│   └── ...
+├── package.json        # Project metadata and dependencies
+└── README.md           # Project documentation
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Dependencies
+The project uses the following key dependencies:
+- **React**: A JavaScript library for building user interfaces.
+- **Leaflet**: A JavaScript library for interactive maps.
+- **React-Leaflet**: React components for Leaflet maps.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Customization
+1. **State Data:**
+   - Update `src/data.js` with new GeoJSON data if necessary.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Styling:**
+   - Modify `src/index.css` to change the appearance of the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributing
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m 'Add feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Open a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
+This project is licensed under the MIT License.
 
-## Learn More
+## Support
+If you encounter any issues, feel free to open an issue on the GitHub repository or contact the maintainer directly.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Acknowledgments
+- **Leaflet** for the mapping library.
+- **React-Leaflet** for integrating Leaflet with React.
+- **OpenStreetMap** for map tiles.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+Enjoy using the application and feel free to contribute!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
