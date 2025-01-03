@@ -29,7 +29,7 @@ cd <project-directory>
 ### Install Dependencies
 Install all necessary packages:
 ```bash
-npm install
+npm install react react-dom react-leaflet leaflet
 ```
 
 ### Start the Development Server
