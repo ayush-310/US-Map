@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.info-panel {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.info-panel h2 {
+  margin: 0 0 0.5rem;
+}
+
+.info-panel p {
+  margin: 0.5rem 0;
+}
+
+.info-panel button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.info-panel button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .info-panel {
+    font-size: 0.9rem;
+  }
+
+  .info-panel button {
+    padding: 0.4rem 0.8rem;
+  }
+}
