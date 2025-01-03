@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 import { statesData } from './data'; // Ensure this file contains GeoJSON data with state-specific scores
-import { MapContainer, Polygon, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, Polygon, TileLayer } from 'react-leaflet';
 import './index.css';
 
 function App() {
   const center = [37.8, -96]; // Center of the US
   const [selectedState, setSelectedState] = useState(null);
+  const [hoveredState, setHoveredState] = useState(null);
+  const [isTopRightInfoOpen, setIsTopRightInfoOpen] = useState(false);
 
   // Default scores for states (initialize with statesData)
   const [stateScores, setStateScores] = useState(() => {
@@ -24,6 +26,18 @@ function App() {
       [stateName]: prevScores[stateName] + change,
     }));
   };
+
+  const HoverInfo = () => (
+    <div className="hover-info">
+      {hoveredState ? (
+        <p>
+          <strong>{hoveredState.name}</strong>: {hoveredState.score}
+        </p>
+      ) : (
+        <p>State : score</p>
+      )}
+    </div>
+  );
 
   // Utility function for color based on score
   const getColor = (score) => {
@@ -49,6 +63,20 @@ function App() {
       ) : (
         <p>Click on a state to see details</p>
       )}
+    </div>
+  );
+
+  // Top-Right Info Component
+  const TopRightInfo = () => (
+    <div className="top-right-info">
+      <h3>State Scores</h3>
+      <ul>
+        {Object.entries(stateScores).map(([state, score]) => (
+          <li key={state}>
+            <strong>{state}:</strong> {score}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 
@@ -82,11 +110,30 @@ function App() {
               positions={coordinates}
               eventHandlers={{
                 click: () => setSelectedState(state.properties.name),
+                mouseover: () =>
+                  setHoveredState({
+                    name: state.properties.name,
+                    score: stateScores[state.properties.name],
+                  }),
+                mouseout: () => setHoveredState(null),
               }}
             />
           );
         })}
       </MapContainer>
+
+      <HoverInfo />
+
+      {/* Toggle Button for TopRightInfo */}
+      <button
+        className="toggle-button"
+        onClick={() => setIsTopRightInfoOpen((prev) => !prev)}
+      >
+        {isTopRightInfoOpen ? 'Hide Scores' : 'Show Scores'}
+      </button>
+
+      {/* Conditionally Render TopRightInfo */}
+      {isTopRightInfoOpen && <TopRightInfo />}
 
       <InfoPanel />
     </div>
