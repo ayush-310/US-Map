@@ -39,12 +39,7 @@ npm start
 ```
 This will start the application, and it will be accessible at `http://localhost:3000/` in your browser.
 
-### Building for Production
-To create a production build:
-```bash
-npm run build
-```
-The optimized production build will be created in the `build/` directory.
+
 
 ## Project Structure
 ```
